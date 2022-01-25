@@ -28,14 +28,12 @@ public class Customer extends Person {
 
     public void findSellerOnMarket(Market market, String findName, String findLastName) {
         //сортируем продавцов, чтобы нужный был первый в списке
-
-
         boolean sellerOn = false;  //переменная чтобы понять есть ли вообще такой продавец, чтобы выдавать сканнер в случае отсутствия
-        List<Seller> sellers  = market.getSellers();
+        List<Seller> sellers = market.getSellers();
 
         for (int i = 0; i < sellers.size(); i++) {
-            Seller sellersI =  market.getSellers().get(i);
-                if (sellersI.getName().equals(findName) && sellersI.getLastName().equals(findLastName)) {
+            Seller sellersI = market.getSellers().get(i);
+            if (sellersI.getName().equals(findName) && sellersI.getLastName().equals(findLastName)) {
                 sellers.add(sellers.get(0));
                 sellers.set(0, sellersI);
                 sellers.set(i, sellers.get(sellers.size() - 1));
